@@ -31,7 +31,7 @@ int main()
         sum1 += Asgl[i];
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование первого массива: "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование первого массива: " << "\t" << t;
     // суммируем второй массив
     t = clock();
     for (int i = 0; i < n; i++)
@@ -40,62 +40,62 @@ int main()
     }
     t = clock() - t;
     sum1 = 0; sum2 = 0;
-    cout << "\nВремя затраченное на суммирование второго массива: "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование второго массива: " << "\t" << t;
     ///
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(2)
+#pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(2)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum1 += Asgl[i];
         }
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование первого массива (2 потока): "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование первого массива (2 потока): " << "\t" << t;
     ///
     sum1 = 0; sum2 = 0;
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(2)
+#pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(2)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum2 += Abdl[i];
         }
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование второго массива (2 потока): "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование второго массива (2 потока): " << "\t" << t;
     ///
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(4)
+#pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(4)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum1 += Asgl[i];
         }
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование первого массива (4 потока): "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование первого массива (4 потока): " << "\t" << t;
     ///
     sum1 = 0; sum2 = 0;
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(4)
+#pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(4)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum2 += Abdl[i];
         }
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование второго массива (4 потока): "<< "\t" << t;
+    cout << "\nВремя затраченное на суммирование второго массива (4 потока): " << "\t" << t;
     ///
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(8)
+#pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(8)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum1 += Asgl[i];
@@ -106,9 +106,9 @@ int main()
     ///
     sum1 = 0; sum2 = 0;
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(8)
+#pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(8)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum2 += Abdl[i];
@@ -118,9 +118,9 @@ int main()
     cout << "\nВремя затраченное на суммирование второго массива (8 потока): " << "\t" << t;
     ///
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(16)
+#pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(16)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum1 += Asgl[i];
@@ -131,9 +131,9 @@ int main()
     ///
     sum1 = 0; sum2 = 0;
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(16)
+#pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(16)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum2 += Abdl[i];
@@ -143,9 +143,9 @@ int main()
     cout << "\nВремя затраченное на суммирование второго массива (16 потока): " << "\t" << t;
     ///
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(32)
+#pragma omp parallel shared(Asgl) reduction (+: sum1) num_threads(32)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum1 += Asgl[i];
@@ -156,17 +156,18 @@ int main()
     ///
     sum1 = 0; sum2 = 0;
     t = clock();
-    #pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(32)
+#pragma omp parallel shared(Asgl) reduction (+: sum2) num_threads(32)
     {
-    #pragma omp for
+#pragma omp for
         for (int i = 0; i < n; ++i)
         {
             sum2 += Abdl[i];
         }
     }
     t = clock() - t;
-    cout << "\nВремя затраченное на суммирование второго массива (32 потока): " << "\t" << t;
+    cout << "\nВремя затраченное на суммирование второго массива (32 потока): " << "\t" << t1111;
 }
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"

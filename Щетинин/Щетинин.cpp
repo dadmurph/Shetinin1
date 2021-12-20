@@ -15,13 +15,14 @@ int main()
     setlocale(LC_CTYPE, "rus");
     cout << "Кол-во потоков:" << omp_get_num_procs();
     const int n = 1000000;
-    int* Asgl = new int[n];
+    float* Asgl = new float[n];
     double* Abdl = new double[n];
-    int sum1 = 0, sum2 = 0;
+    float sum1 = 0;
+    double sum2 = 0;
     for (int i = 0; i < n; i++)
     {
-        Asgl[i] = rand();
-        Abdl[i] = rand();
+        Asgl[i] = rand() % 3;
+        Abdl[i] = rand() % 3;
     }
     unsigned int t;
     // суммируем первый массив 
